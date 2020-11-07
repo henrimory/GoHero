@@ -1,0 +1,61 @@
+{% extends "BaseInicial.html" %}
+{% block title %}  {% endblock title%}
+{% load static %}
+{% block content %}
+    <div class="container" id="conteudo">
+      <div class="h1 text-center mt-5 mb-5" style="background-color:#83d4b6;
+      font-family:Times, serif;">Campanhas Recentes de Ongs</div>
+{% if postAnunc %}
+    {% for post in postAnunc %}
+                         <div class=" bg-light text-dark rounded m-auto container border border-dark ">
+
+                        <br>
+                         <a href="{% url 'url_visitPerfilNotLog' post.id_ong%}">
+
+                             <img src="{{ post.id_ong.imagem.url }}" class="rounded-pill" style="width:50px; height:50px;" alt="consertar">
+
+                             <p class="d-inline font-weight-bolder text-dark" style="text-decoration:none;">{{ post.id_ong }}</p><br>
+                         </a>
+                         <a style="font-size:13px;">{{post.data_publicacao}}</a>
+                        <br>
+                        <br>
+
+                        <h5>{{post.titulo}}</h5>
+                        <p>{{post.descricao}}</p>
+
+                        <div class="text-center">
+                         <img src="{{ post.imagem.url }}" class="img-fluid rounded">
+                        </div>
+                            <br>
+                          <footer class="p-3 mt-2 rounded" style="background-color: #c4c4c4;">
+                                    <a type="button" id="like" onclick="
+
+
+                                    ">
+                                    <svg  width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-heart like" id="like" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                    </svg></a>
+                              <Span id="nLikes"></Span>
+
+                                    <a href="https://api.whatsapp.com/send?phone=55{{post.id_ong.id_numero}}" target=”_blank” class="float-right">
+                                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-square-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                          <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                          <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                        </svg>
+                                    </a>
+
+                          </footer><br>
+                    </div>
+                    <br>
+
+        {% endfor %}
+{% else %}
+
+        <div class="h1 text-center p-3">Nenhuma Campanha Recente</div>
+
+
+{% endif %}
+
+    </div>
+
+ {% endblock content %}

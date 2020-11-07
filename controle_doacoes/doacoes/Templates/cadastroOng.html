@@ -5,15 +5,63 @@
 <!-- FORM CADASTRO DE ONG -->
     <div class="container-lg">
         <div class="p-5 mt-5 container-lg rounded forms">
-            {% if formOng %}
+            
                 <h1 class="text-center">Dados da Ong</h1>
-                <form enctype="multipart/form-data" method="POST">
+                <form encType="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {{formOng|crispy}}
-                    <button type="submit" class="btn my-3" style="background-color:#57b5ac;color:white;">Salvar</button>
+                   <!-- Nome da Ong -->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nome da Ong</label>
+                        <input type="text" required class="form-control" id="nomeOng" name="nomeOng" aria-describedby="nomeOngHelp" placeholder="Qual o nome da Ong?">
+                      </div>
+                    <!-- CNPJ -->
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">CNPJ</label>
+                        <input type="text" class="form-control" required minlength="14" maxlength="14" id="cnpj" name="cnpj" aria-describedby="cnpjHelp" placeholder="Qual o CNPJ da Ong?">
+                      </div>
+                      <!-- Email -->
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço de Email da Ong</label>
+                        <input type="email" name="emailOng" class="form-control" required id="emailOng" aria-describedby="emailHelp" placeholder="Qual o seu email ?">
+                      </div>
+                      <!-- Senha -->
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Senha</label>
+                        <input type="password" class="form-control" required minlength="8" id="senhaOng" name="senhaOng" aria-describedby="emailHelp" placeholder="Escolha uma senha">
+                        <small class="form-text text-muted">Escolha a senha da conta. Deve conter no mínimo 8 caracteres</small>
+                      </div>
+                      <!-- Selecionando Imagem de Perfil -->
+                    <div class="form-group">  
+                        <input class="file-button" id="imgPerfil" required name="imgPerfil" type="button" value="Esolha a Imagem de Perfil">
+                    </div>
+                    <div class="form-group">
+                        <!-- invisível -->
+                        <input class="file-chooser" required oninvalid="alert('Selecione uma imagem')" id="imgPerfil1" name="imgPerfil1" type="file" accept="image/*" hidden>
+                        <img class="preview-img" style="border-radius:10px;">
+                    </div>
+                    <!-- Botão de Salvar -->
+                    <button type="submit" class="btn my-3 btn-cad" style="background-color:#57b5ac;color:white;">Salvar</button>
+
                 </form>
-            {% endif %}
+         
         </div>
     <br>
     </div>
+
+    <script> 
+    const $ = document.querySelector.bind(document);
+
+    const previewImg = $('.preview-img');
+    const fileChooser = $('.file-chooser');
+    const fileButton = $('.file-button');
+
+    fileButton.onclick = () => fileChooser.click();
+
+    fileChooser.onchange = e => {
+        const fileToUpload = e.target.files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => previewImg.src = e.target.result;
+        reader.readAsDataURL(fileToUpload);
+    };
+    </script>
  {% endblock content %}

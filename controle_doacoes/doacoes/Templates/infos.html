@@ -12,6 +12,18 @@
              <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 {{formUpdate|crispy}}
+                <label>Foto atual:</label><br>
+                <img src="{{ userUp.imagem.url }}" class="rounded" style="width:200px; height:200px;" alt="consertar">
+                <br><br>
+                   <!-- Selecionando Imagem de Perfil -->
+                   <div class="form-group">  
+                    <input class="file-button" id="imgPerfil" required name="imgPerfil" type="button" value="Esolher nova Foto de Perfil">
+                </div>
+                <div class="form-group">
+                    <!-- invisível -->
+                    <input class="file-chooser" oninvalid="alert('Selecione uma imagem')" id="imgPerfil1" name="imgPerfil1" type="file" accept="image/*" hidden>
+                    <img class="preview-img" style="border-radius:10px;width:200px; height:200px;">
+                </div>
                 <button type="submit" class="btn btn-primary my-3">Salvar</button>
             </form>
 <!-- FORMULARIO DE ENDEREÇO -->
@@ -41,4 +53,22 @@
 {% endif %}
 
 
+
+
+<script> 
+    const $ = document.querySelector.bind(document);
+
+    const previewImg = $('.preview-img');
+    const fileChooser = $('.file-chooser');
+    const fileButton = $('.file-button');
+
+    fileButton.onclick = () => fileChooser.click();
+
+    fileChooser.onchange = e => {
+        const fileToUpload = e.target.files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => previewImg.src = e.target.result;
+        reader.readAsDataURL(fileToUpload);
+    };
+    </script>
  {% endblock content %}

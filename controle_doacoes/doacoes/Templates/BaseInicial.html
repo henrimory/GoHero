@@ -90,10 +90,12 @@
 <!-- BOTÕES DE CADASTRAR E LOGAR -->
             <div class="collapse navbar-collapse" id="conteudoNavbar">
                 <div class="col" style="display:flex;justify-content: flex-end; flex-wrap:wrap;">
-                    <button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mr-2" data-toggle="modal" data-target="#modalCad">
+                    <a href="{% url 'url_anuncioOngs' %}"><button type="button" class="btn btn-inicial border " style="font-family:Times, serif;font-size:20px;">Campanhas Recentes</button></a>
+
+                    <button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mr-2 ml-2 mt-2 mt-lg-0" data-toggle="modal" data-target="#modalCad">
                         Cadastre-se
                     </button>
-                    <a href="/login/" id="login"><button type="button" class="btn btn-inicial border" style="font-family:Times, serif;font-size:20px;">Login</button></a>
+                    <a href="/login/" id="login"><button type="button" class="btn btn-inicial border mt-2 mt-lg-0" style="font-family:Times, serif;font-size:20px;">Login</button></a>
                 </div>
 
                     <!-- Modal DO BOTÃO CADASTRAR-->

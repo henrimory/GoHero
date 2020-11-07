@@ -5,26 +5,29 @@
 <!-- LOGIN -->
     <div class="container">
         <div class="container">
-            <form method="POST">
+            <form action="" method="POST">
                 {% csrf_token %}
                 <!-- FORMULÁRIO DE LOGIN -->
                 <div class="container mt-5 rounded p-3 forms" style="box-shadow: 0px 2px 10px 3px;">
-                    <h2 style="text-align:center;color:#57b5ac;font-family:Times;"> LOGIN</h2><br>
-                    <h4 class="p-2">E-mail: </h4>
-                    <input type="email" id="email" name="email" class="form-control d-inline">
+                    <h2 style="text-align:center;color:#57b5ac;font-family:Times;">Recuperando Senha</h2><br>
+                    <h4 class="p-2">Informe o E-mail: </h4>
+                    <input type="email" id="emailRec" name="emailRec" required class="form-control d-inline" >
                     <br><br>
-                    <h4 class="p-2">Senha: </h4>
-                    <input type="password" id="senha" name="senha" class="form-control ">
+                    <h4 class="p-2">Informe o CPF/CNPJ: </h4>
+                    <input type="text" id="cpfRec" name="cpfRec" required oninvalid="O campo deve receber ao menos 11 caracteres" class="form-control" minlength="11" maxlength="14">
+                    <h4 class="p-2">Nova Senha: </h4>
+                    <input type="password" id="senhaRec" name="senhaRec" class="form-control" required oninvalid="Digite ao menos 8 caracteres" minlength="8">
                     <!-- MENSSAGEM DE ERRO AO LOGAR -->
-                    {% if erroLogin %}
-                        <p class="login-error">Senha ou Email Incorretos. Por favor verifique os dados</p>
+                    {% if erroRec %}
+                        <p class="login-error">CPF/CNPJ e Email Não são compatíveis. Por favor verifique os dados</p>
                     {% endif %}
                     <br>
+
                     <div class="col text-center">
                     <button type="submit" class="btn btn-logar">Entrar</button><br><br>
                     </div>
                     <!-- BOTÕES DE CADASTRO E RECUPERAÇÃO DE SENHA -->
-                    <a href="{% url 'url_recoverPass' %}" class=" senha">Esqueceu a senha?</a>
+                    <a href="/login/" class=" senha">Faça o Login para Entrar</a>
                     <a href="/cadastroEndeOng/" class="float-right">Criar uma conta como Ong?</a><br><br>
                     <a href="/cadastroEnde/" class="float-right">Criar uma conta como Doador?</a><br>
                 </div>
