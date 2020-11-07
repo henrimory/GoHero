@@ -29,7 +29,6 @@ urlpatterns = [
     path('logout/', views.login, name="url_logout"),
     path('cadastroOng/', views.cadastroOng, name="url_cadOng"),
     path('cadastroUser/', views.cadastroUser, name="url_cadUser"),
-    path('cadastroUser/', views.contatos, name='url_cadUser'),
     path('cadastroEnde/', views.cadastroEnde, name="url_cadEnde"),
     path('cadastroEndeOng/', views.cadastroEndeOng, name="url_cadEndOng"),
     path('perfil/', views.perfil, name="url_perfil"),
@@ -44,5 +43,6 @@ urlpatterns = [
     path('home/postOng/', views.homePostOng, name='url_homePostOng'),
     path('home/postDoador/', views.homePostDoador, name='url_homePostDoador'),
     path('perfil/<str:pk>', views.visitPerfil, name='url_visitPerfil'),
+    path('search/', views.search, name="url_search")
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
