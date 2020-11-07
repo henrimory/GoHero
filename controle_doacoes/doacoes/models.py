@@ -1,7 +1,4 @@
 from django.db import models
-import getpass
-
-# Create your models here.
 
 class Endereco(models.Model):
     id_endereco = models.AutoField(primary_key=True)
@@ -20,6 +17,16 @@ class Endereco(models.Model):
         verbose_name_plural = "Endereços"
 
 
+class Numero_Contato(models.Model):
+    id_numero = models.AutoField(primary_key=True)
+    telefone = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.telefone
+
+
+
+
 
 class Ong(models.Model):
     id_ong = models.AutoField(primary_key=True)
@@ -28,7 +35,8 @@ class Ong(models.Model):
     email_ong = models.EmailField(max_length=100, verbose_name="E-mail da Ong", null=True, blank=True)
     senha = models.CharField(max_length=100)
     imagem = models.FileField(upload_to="perfil_ong/%Y/%m/%d/", null=True, blank=True)
-    id_endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+    id_endereco = models.ForeignKey(Endereco, verbose_name="Endereço", on_delete=models.CASCADE)
+    id_numero = models.ForeignKey(Numero_Contato, verbose_name="Telefone de Contato", on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -45,7 +53,9 @@ class Doador(models.Model):
     email_doador = models.EmailField(max_length=100, verbose_name="E-mail do Doador", null=True, blank=True)
     senha = models.CharField(max_length=100, null=True, blank=True)
     imagem = models.FileField(upload_to="perfil_doador/%Y/%m/%d/", null=True, blank=True)
-    id_endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+    id_endereco = models.ForeignKey(Endereco, verbose_name="Endereço", on_delete=models.CASCADE)
+    id_numero = models.ForeignKey(Numero_Contato, verbose_name="Telefone de Contato", on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.nome
@@ -54,14 +64,6 @@ class Doador(models.Model):
         verbose_name_plural = "Doadores"
 
 
-class Numero_Contato(models.Model):
-    id_numero = models.AutoField(primary_key=True)
-    telefone = models.CharField(max_length=20)
-    id_doador = models.ForeignKey(Doador, on_delete=models.CASCADE)
-    id_ong = models.ForeignKey(Ong, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.telefone
 
 
 class Publicacao_Doador(models.Model):
