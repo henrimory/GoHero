@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9b276bac-4b4c-42da-be0c-47a04a7c0990" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1gqAGvSJkaIXntYDjSFjEmFnE4R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/projetcc" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b276bac-4b4c-42da-be0c-47a04a7c0990" name="Default Changelist" comment="" />
+      <created>1598831657049</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598831657049</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-846" y="-221" key="FileChooserDialogImpl" timestamp="1603329467546">
+      <screen x="-1280" y="-388" width="1280" height="994" />
+    </state>
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738/-1280.-379.1280.994@0.0.1366.738" timestamp="1600381585320" />
+    <state x="-846" y="-221" key="FileChooserDialogImpl/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1603329467546" />
+    <state x="-925" y="-128" key="com.intellij.ide.util.TipDialog" timestamp="1603329361856">
+      <screen x="-1280" y="-388" width="1280" height="994" />
+    </state>
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-379.1280.994@0.0.1366.738" timestamp="1600381533020" />
+    <state x="-925" y="-128" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1603329361856" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@0.0.1366.738" timestamp="1599425513155" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/controle_doacoes/controle_doacoes/wsgi.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
