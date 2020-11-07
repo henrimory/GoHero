@@ -1,32 +1,37 @@
 {% extends "BaseInicial.html" %}
 {% block title %}  {% endblock title%}
 
- {% block content %}
+{% block content %}
+<!-- LOGIN -->
+    <div class="container">
+        <div class="container">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <!-- FORMULÁRIO DE LOGIN -->
+                <div class="container mt-5 rounded p-3 forms" style="box-shadow: 0px 2px 10px 3px;">
+                    <h2 style="text-align:center;color:#57b5ac;"> LOGIN</h2><br>
+                    <h4 class="p-2">E-mail: </h4>
+                    <input type="email" id="email" name="email" class="form-control d-inline">
+                    <br><br>
+                    <h4 class="p-2">Senha: </h4>
+                    <input type="password" id="senha" name="senha" class="form-control ">
+                    <!-- MENSSAGEM DE ERRO AO LOGAR -->
+                    {% if erroLogin %}
+                        <p class="login-error">Senha ou Email Incorretos. Por favor verifique os dados</p>
+                    {% endif %}
+                    <br>
 
-
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="container mt-5 rounded p-5 forms">
-            <h2 style="text-align:center;color:#57b5ac;"> LOGIN</h2><br>
-            <h4 class="p-2">E-mail: </h4>
-            <input type="email" id="email" name="email" class="form-control d-inline">
-            <br><br>
-            <h4 class="p-2">Senha: </h4>
-            <input type="password" id="senha" name="senha" class="form-control ">
-            {% if erroLogin %}
-                <p class="text-danger">Senha ou Email Incorretos. Por favor verifique os dados</p>
-            {% endif %}
-            <br>
-            <br>
-            <div class="col text-center">
-            <button type="submit" class="btn" style="width:5em; height:3em; background-color:#57b5ac">Entrar</button><br><br>
-            </div>
-            <a href="" class=" senha">Esqueceu a senha?</a>
-            <a href="/cadastroEndeOng/" class="float-right">Criar uma conta como Ong?</a><br><br>
-            <a href="/cadastroEnde/" class="float-right">Criar uma conta como Doador?</a><br>
+                    <div class="col text-center">
+                    <button type="submit" class="btn btn-logar">Entrar</button><br><br>
+                    </div>
+                    <!-- BOTÕES DE CADASTRO E RECUPERAÇÃO DE SENHA -->
+                    <a href="" class=" senha">Esqueceu a senha?</a>
+                    <a href="/cadastroEndeOng/" class="float-right">Criar uma conta como Ong?</a><br><br>
+                    <a href="/cadastroEnde/" class="float-right">Criar uma conta como Doador?</a><br>
+                </div>
+            </form>
         </div>
-    </form>
-<br>
+    </div>
+    <br>
 
  {% endblock content %}

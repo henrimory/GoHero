@@ -2,18 +2,18 @@
 {% block title %} Cadastrando Usuário {% endblock title%}
 {% load crispy_forms_tags %}
  {% block content %}
-<div class="container-lg">
-<div class="p-5 mt-5 container-lg rounded forms">
-    {% if formOng %}
-    <h1 class="text-center">Dados da Ong</h1>
-    <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{formOng|crispy}}
-        <button type="submit" class="btn my-3" style="background-color:#57b5ac">Salvar</button>
-    </form>
-
-{% endif %}
-
-</div>
-</div>
+<!-- FORM CADASTRO DE ONG -->
+    <div class="container-lg">
+        <div class="p-5 mt-5 container-lg rounded forms">
+            {% if formOng %}
+                <h1 class="text-center">Dados da Ong</h1>
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{formOng|crispy}}
+                    <button type="submit" class="btn my-3" style="background-color:#57b5ac;color:white;">Salvar</button>
+                </form>
+            {% endif %}
+        </div>
+    <br>
+    </div>
  {% endblock content %}

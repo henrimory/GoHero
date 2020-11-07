@@ -7,21 +7,82 @@
     <title>Base</title>
     <style>
       body{
-        overflow-x:hidden;
-        background: url("/static/fundo.png") center;
+            overflow-x:hidden;
+            background: url("/static/fundo.png") center;
         }
         .btn-add:hover{
-        padding: 2px;
+            padding: 2px;
+        }
+        .msg-deslogado{
+            text-align: center;
+            background-color: white;
+            border-radius:20px ;
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0px 1px 5px;
+        }
+        .btn-deslogado{
+            border-radius: 20px;
+            border:none;
+            padding:10px ;
+            box-shadow:1px 1px 5px ;
+            background-color: gray;
+        }
+        .userSearch{
+        display: flex;
+
+        }
+        .btn-tipo{
+        background-color:#83d4b6;
+        }
+        .btn-tipo:hover{
+        box-shadow: 1px 1px 5px;
+        }
+        .userSearch{
+        display: flex;
+        justify-content:center;
+        background-color: #d9d9d9;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 1px 1px 5px;
+        align-items:center;
+        text-decoration: none;
+        }
+        .userSearch img{
+        width:200px;
+        }
+        .scroll-x{
+            display:flex;
+            flex-direction: row;
+
+            list-style: none;
+            }
+        @media screen and (max-width: 991px){
+            .scroll-x{
+            display:flex;
+            flex-direction: row;
+            overflow-x:scroll;
+            list-style: none;
+            }
         }
 
+
+        @media screen and (max-width: 410px){
+            .btn-editDel{
+             margin-left:40%;
+            }
+        }
+
+
         @media only screen and (max-width: 830px) {
-          .anuncio img{
-          display:none;
-          }
-          .post{
-          display:flex;
-          justify-content:center;
-          }
+            .anuncio img{
+                display:none;
+            }
+            .post{
+                display:flex;
+                justify-content:center;
+            }
         }
     </style>
     {% load static %}
@@ -29,28 +90,37 @@
 </head>
 <body>
 <div style="position:relative;background-color: #a6f7f3; height: 80px;opacity:0.8;"></div>
-<div style="">
+
 
 <!--elementos da navbar -->
 <nav class="navbar navbar-expand-lg navbar-light mb-5" style="margin:-30px auto; width:90%;background-color:#1b8f89;">
     <div class="logo col col-md-5">
      <a href="{% url 'url_home' %}" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;"d>GO HERO</a>
     </div>
-
+<!-- Botão drop-down Menu -->
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
      </button>
 
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-
-    <form class="form-inline my-2 my-lg-0 col-11 ">
-      <input class="form-control mr-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-        <a href="#">
-      <button class="btn btn-outline-light my-2 my-sm-0" >
+<!-- Barra de Pesquisa -->
+    <form class="form-inline my-2 my-lg-0 col-11" method="POST">
+        {% csrf_token %}
+      <input type="text" id="searchName" name="searchName" class="form-control d-inline" list="pesquisaUser" placeholder="Pesquisar...">
+      <button type="submit" class="btn btn-outline-light my-2 my-sm-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button></a>
+      </button>
     </form>
 
+      <datalist id="pesquisaUser">
+          {% for searchO in searchOng %}
+          <option>{{searchO.nome}}</option>
+          {% endfor %}
+          {% for searchD in searchDoador %}
+          <option>{{searchD.nome}}</option>
+          {% endfor %}
+      </datalist>
+<!-- BOTÃO DE CONFIGURAÇÕES -->
     <div class="">
         <a>
         <ul class="navbar-nav">
@@ -63,7 +133,7 @@
               <div class="dropdown-menu">
                 <a href="{% url 'url_perfil'%}" class="dropdown-item">Meu Perfil</a>
                 <a href="{% url 'url_infos' userLog.pk %}" class="dropdown-item">Meus dados</a>
-                <a href="{% url 'url_favoritos'%}" class="dropdown-item">Favoritos</a>
+                <!--<a href="{% url 'url_favoritos'%}" class="dropdown-item">Favoritos</a>-->
                 <a href="{% url 'url_login' %}" class="dropdown-item"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
               </div>
           </li>
@@ -72,7 +142,7 @@
     </div>
   </div>
 </nav>
-</div>
+
 
 {% block content %}
 

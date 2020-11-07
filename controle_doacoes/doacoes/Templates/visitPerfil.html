@@ -2,116 +2,131 @@
     {% block title %} Pesquisar {% endblock title%}
     {% load static %}
 {% block content %}
-{% if tipoVisitado == 'ong' %}
-<div class="container">
-    <div class="bg-light p-3 rounded" style="display:flex; justify-content: flex-start">
-       <span style="font-size:30px;" class="mr-5">
-    <img src="{{ perfilVisitado.imagem.url }}" class="rounded-pill" style="width:100px; height:100px;">
-           {{ perfilVisitado.nome }}
-       </span>
-        <h3 class="ml-5" style="align-self:center;">
-           <p style="border-bottom: 2px;">Endereço: {{endVisitado.logradouro}}</p>
-           <p>Cidade: {{endVisitado.cidade}}</p>
-           <p>Bairro: {{endVisitado.bairro}}</p>
-           <p>Número: {{endVisitado.numero}}</p>
-       </h3>
-    </div><br>
-    <h1 class="text-center" style="background-color:#3eb59b;color:white;font-family:Times, serif;"> Postagens </h1><br>
+<!-- VERIFICA SE O USUARIO ESTÁ LOGADO -->
+{% if acesso %}
 
+<!-- VERIFICA SE O PERFIL QUE ESTA SENDO VISITADO É DE UMA ONG OU DE UM DOADOR, PARA BUSCAR NA TABELA CORRETA -->
+    {% if tipoVisitado == 'ong' %}
+        <!-- CÓDIGO QUE EXIBE OS DADOS DO USUARIOS VISITADO -->
+            <div class="container">
+                <div class="bg-light p-3 rounded" style="display:flex; justify-content: flex-start; flex-wrap:wrap;">
+                   <span style="font-size:30px;" class="mr-5">
+                <img src="{{ perfilVisitado.imagem.url }}" class="img-fluid rounded-pill" style="width:200px; height:auto;">
+                       <a  style="font-weight:bold; font-size:120%;">{{ perfilVisitado.nome }}</a>
+                   </span>
+                    <h3 class="" style="align-self:center;">
+                        <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Endereço: {{endVisitado.logradouro}}</div>
+                        <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Cidade: {{endVisitado.cidade}}</div>
+                        <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Bairro: {{endVisitado.bairro}}</div>
+                        <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Número: {{endVisitado.numero}}</div>
+                   </h3>
+                </div><br>
+                <h1 class="text-center" style="background-color:#3eb59b;color:white;font-family:Times, serif;"> Postagens </h1><br>
+        <!-- CÓDIGO QUE EXIBE AS POSTAGENS DO USUÁRIO VISITADO -->
+        {% for post in postagensVisitado %}
+            <div class=" bg-light text-dark rounded m-auto container border border-dark">
+                <br>
+                <span class="mr-5">
+                    <img src="{{ perfilVisitado.imagem.url }}" class="img-fluid rounded-pill" style="width:50px; height:50px;">
+                    <a style="font-weight:bold; font-size:150%;">{{ post.id_ong }}</a>
+                </span>
+                <br>
+                <a style="font-size:13px;">{{post.data_publicacao}}</a>
+                <br>
+                <br>
 
+                <h5>{{post.titulo}}</h5>
+                <p>{{post.descricao}}</p>
+
+                <div class="text-center">
+                    <img src="{{ post.imagem.url }}" class="img-fluid rounded">
+                </div>
+                <br>
+                   <footer class="p-3 mt-2 rounded" style="background-color: #c4c4c4;">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+
+                        <a class="float-right">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-square-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </a>
+                   </footer>
+                   <br>
+            </div>
+            <br>
+        {% endfor %}
+        </div>
+
+<!-- SE FOR UM DOADOR, ELE BUSCA NA TABELA DOADOR PARA EXIBIR OS DADOS -->
+    {% else %}
+
+    <div class="container">
+          <div class="bg-light p-3 rounded" style="display:flex; justify-content: flex-start; flex-wrap:wrap;">
+          <span style="font-size:30px;" class="mr-5">
+        <img src="{{ perfilVisitado.imagem.url }}" class="img-fluid rounded-pill" style="width:200px; height:auto;">
+              <a  style="font-weight:bold; font-size:120%;">{{ perfilVisitado.nome }}</a>
+           </span>
+            <h3 class="" style="align-self:center;">
+                <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Endereço: {{endVisitado.logradouro}}</div>
+                <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Cidade: {{endVisitado.cidade}}</div>
+                <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Bairro: {{endVisitado.bairro}}</div>
+                <div style="border:solid 1px;border-top: 1px; border-left:1px; border-right:1px">Número: {{endVisitado.numero}}</div>
+           </h3>
+        </div><br>
+        <!-- Postagens do perfil Visitado -->
+
+        <h1 class="text-center" style="background-color:#3eb59b;color:white;font-family:Times, serif;"> Postagens </h1><br>
     {% for post in postagensVisitado %}
-<div class=" bg-light text-dark rounded m-auto container border border-dark">
+        <div class=" bg-light text-dark rounded m-auto container border border-dark">
 
-    <br>
-      <img src="" class="rounded" style="width:100px; height:50px;">
-      <p class="d-inline">{{ post.id_ong }}</p><br>{{post.data_publicacao}}
+            <br>
+            <span class="mr-5">
+                <img src="{{ perfilVisitado.imagem.url }}" class="img-fluid rounded-pill" style="width:50px; height:50px;">
+                <a style="font-weight:bold; font-size:150%;">{{ post.id_doador }}</a>
+            </span><br>
+                <a style="font-size:13px;">{{post.data_publicacao}}</a>
+            <br>
+            <br>
 
-    <br>
-    <br>
+            <h5>{{post.titulo}}</h5>
+            <p>{{post.descricao}}</p>
 
-    <h5>{{post.titulo}}</h5>
-    <p>{{post.descricao}}</p>
+            <div class="text-center">
+             <img src="{{ post.imagem.url }}" class="img-fluid rounded">
+            </div>
+                <br>
+                <footer class="p-3 mt-2 rounded" style="background-color: #c4c4c4;">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
 
-    <div class="text-center">
-     <img src="{{ post.imagem.url }}" class="img-fluid rounded">
-    </div>
-        <br>
-       <footer class="p-3 mt-2 rounded" style="background-color: #c4c4c4;">
-                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                </svg>
+                        <a class="float-right">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-square-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                              <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </a>
 
-                <a class="float-right">
-                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-square-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                      <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </a>
+                </footer>
+                <br>
+        </div>
+                <br>
+        {% endfor %}
+        </div>
 
-            </footer><br>
-</div>
-<br>
-
-{% endfor %}
--->
-</div>
-
-{% else %}
-
-<div class="container">
-      <div class="bg-light p-3 rounded" style="display:flex; justify-content: flex-start">
-       <span style="font-size:30px;" class="mr-5">
-    <img src="{{ perfilVisitado.imagem.url }}" class="rounded-pill" style="width:100px; height:100px;">
-           {{ perfilVisitado.nome }}
-       </span>
-        <h3 class="ml-5" style="align-self:center;">
-           <p style="border-bottom: 2px;">Endereço: {{endVisitado.logradouro}}</p>
-           <p>Cidade: {{endVisitado.cidade}}</p>
-           <p>Bairro: {{endVisitado.bairro}}</p>
-           <p>Número: {{endVisitado.numero}}</p>
-       </h3>
-    </div><br>
-    <h1 class="text-center" style="background-color:#3eb59b;color:white;font-family:Times, serif;"> Postagens </h1><br>
-   {% for post in postagensVisitado %}
-<div class=" bg-light text-dark rounded m-auto container border border-dark">
-
-    <br>
-      <img src="" class="rounded" style="width:100px; height:50px;">
-      <p class="d-inline">{{ post.id_doador }}</p><br>{{post.data_publicacao}}
-
-    <br>
-    <br>
-
-    <h5>{{post.titulo}}</h5>
-    <p>{{post.descricao}}</p>
-
-    <div class="text-center">
-     <img src="{{ post.imagem.url }}" class="img-fluid rounded">
-    </div>
-        <br>
-        <footer class="p-3 mt-2 rounded" style="background-color: #c4c4c4;">
-                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                </svg>
-
-                <a class="float-right">
-                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-square-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                      <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </a>
-
-            </footer><br>
-</div>
-<br>
-
-{% endfor %}
-
-</div>
-
-
+<!--  FECHA O IF QUE VERIFICA O TIPO DO USUARIO -->
 {% endif %}
 
-
+<!-- ELSE CASO USUARIO NÃO ESTEJA LOGADO -->
+{% else %}
+    <div class="msg-deslogado">
+        <h1>Volte para a página de Login para poder acessar está Página</h1>
+        <br>
+        <a href="{% url 'url_login' %}"><button class="btn-deslogado">Clique aqui para Logar!</button></a>
+    </div>
+{% endif %}
 
 {% endblock content %}

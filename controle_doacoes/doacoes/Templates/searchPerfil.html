@@ -1,10 +1,59 @@
 {% extends "base.html" %}
     {% block title %} Pesquisar {% endblock title%}
     {% load static %}
+{% block content %}
+<!-- VERIFICA SE USUARIO ESTA LOGADO -->
+{% if acesso %}
+    <div class="container">
 
+       {% if compatibleUserOng %}
+        <h1 class="text-center">Resultados Ongs</h1>
+            {% for compatibleUserO in compatibleUserOng %}
+             <div class="container">
+                 <div class="userSearch mt-3">
+                    <a href="{% url 'url_visitPerfil' compatibleUserO.nome%}" class="mr-5">
+                        <img class="img-fluid rounded-pill" src="{{ compatibleUserO.imagem.url }}">
+                    </a>
+                     <a href="{% url 'url_visitPerfil' compatibleUserO.nome%}" class="h2">
+                           {{ compatibleUserO.nome }}
+                     </a>
+                 </div>
+             </div>
+            {% endfor %}
+        {% else %}
+            <h2 class="text-center">Nenhuma Ong Encontrada</h2>
+        {% endif %}
+        <br>
+        {% if compatibleUserDoador %}
+        <h1 class="text-center">Resultados Doadores</h1>
 
+            {% for compatibleUserD in compatibleUserDoador %}
+                  <div class="container">
+                 <div class="userSearch mt-3">
+                    <a href="{% url 'url_visitPerfil' compatibleUserD.nome%}" class="mr-5">
+                        <img class="img-fluid rounded-pill" src="{{ compatibleUserD.imagem.url }}">
+                    </a>
+                     <a href="{% url 'url_visitPerfil' compatibleUserD.nome%}" class="h2">
+                           {{ compatibleUserD.nome }}
+                     </a>
+                 </div>
+             </div>
+            {% endfor %}
 
+        {% else %}
+            <h2 class="text-center">Nenhum Doador Encontrado</h2>
+        {% endif %}
 
+    </div>
+
+<!-- ELSE CASO O USUARIO NÃO ESTEJA LOGADO -->
+{% else %}
+    <div class="msg-deslogado">
+        <h1>Volte para a página de Login para poder acessar está Página</h1>
+        <br>
+        <a href="{% url 'url_login' %}"><button class="btn-deslogado">Clique aqui para Logar!</button></a>
+    </div>
+{% endif %}
 
 
 

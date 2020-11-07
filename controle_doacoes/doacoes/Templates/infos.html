@@ -2,44 +2,42 @@
 {% block title %} Home {% endblock title%}
 {% load static %}
  {% block content %}
-
+<!-- VERIFICA USER -->
 {% if acesso %}
-<div class=" bg-light border border-dark text-dark rounded m-auto container" style="height:px;">
-
-{% load crispy_forms_tags %}
-  <h1 class="text-center">Dados Gerais</h1>
-     <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{formUpdate|crispy}}
-        <button type="submit" class="btn btn-primary my-3">Salvar</button>
-    </form>
-
-  <h1 class="text-center">Endereço</h1>
-  <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{formUpdateEnd|crispy}}
-        <button type="submit" class="btn btn-primary my-3">Salvar</button>
-    </form>
-
-
-  <h1 class="text-center">Telefones</h1>
-    <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{ formCont|crispy }}
-        <button type="submit" class="btn btn-primary my-3">Salvar</button>
-    </form>
-
-
-
-
-<br>
-<br>
-</div>
+<!-- FORMULÁRIOS PARA ATUALIZAR OS DADOS DO USUÁRIO  -->
+    <div class=" bg-light border border-dark text-dark rounded m-auto container" style="height:px;">
+<!-- FORMULARIO DE USUÁRIO-->
+        {% load crispy_forms_tags %}
+          <h1 class="text-center">Dados Gerais</h1>
+             <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{formUpdate|crispy}}
+                <button type="submit" class="btn btn-primary my-3">Salvar</button>
+            </form>
+<!-- FORMULARIO DE ENDEREÇO -->
+          <h1 class="text-center">Endereço</h1>
+          <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{formUpdateEnd|crispy}}
+                <button type="submit" class="btn btn-primary my-3">Salvar</button>
+            </form>
+<!-- FORMULARIO DE CONTATO -->
+          <h1 class="text-center">Telefones</h1>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ formCont|crispy }}
+                <button type="submit" class="btn btn-primary my-3">Salvar</button>
+            </form>
+            <br>
+            <br>
+    </div>
 
 {% else %}
-
-<h1 class="text-center">Faça o Login para Acessar o Site</h1>
-
+    <div class="msg-deslogado">
+        <h1>Volte para a página de Login para poder acessar está Página</h1>
+        <br>
+        <a href="{% url 'url_login' %}"><button class="btn-deslogado">Clique aqui para Logar!</button></a>
+    </div>
 {% endif %}
 
 

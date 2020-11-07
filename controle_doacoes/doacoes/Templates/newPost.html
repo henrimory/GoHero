@@ -2,20 +2,27 @@
 {% block title %} Home {% endblock title%}
 {% load static %}
  {% block content %}
+<!-- VERIFICA SE ESTA LOGADO -->
+{% if acesso %}
+<!-- FORM PARA ADD POSTAGEM -->
+    <div class=" bg-light border border-dark text-dark rounded m-auto container">
+    {% load crispy_forms_tags %}
+      <h1 class="text-center">Criando Postagem</h1>
+         <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{formPost|crispy}}
+            <button type="submit" class="btn btn-primary my-3">Salvar</button>
+        </form>
+    <br>
+    <br>
+    </div>
 
-
-<div class=" bg-light border border-dark text-dark rounded m-auto container">
-
-{% load crispy_forms_tags %}
-  <h1 class="text-center">Criando Postagem</h1>
-     <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{formPost|crispy}}
-        <button type="submit" class="btn btn-primary my-3">Salvar</button>
-    </form>
-
-<br>
-<br>
+{% else %}
+<div class="msg-deslogado">
+    <h1>Volte para a página de Login para poder acessar está Página</h1>
+    <br>
+    <a href="{% url 'url_login' %}"><button class="btn-deslogado">Clique aqui para Logar!</button></a>
 </div>
+{% endif %}
 
  {% endblock content %}
