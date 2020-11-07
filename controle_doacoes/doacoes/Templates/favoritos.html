@@ -3,8 +3,8 @@
 {% load static %}
  {% block content %}
 
-
-<h1 class="text-center text-light">Meus Perfis Favoritos</h1><br><br>
+{% if acesso %}
+<h1 class="text-center text-light bg-dark">Meus Perfis Favoritos</h1><br><br>
 <div class=" bg-dark text-light rounded m-auto container col p-3">
 
 <h1 class="text-center">Você não tem Favoritos</h1>
@@ -24,7 +24,11 @@
 -->
 </div>
 
+{% else %}
 
+<h1 class="text-center">Faça o Login para Acessar o Site</h1>
+
+{% endif %}
 
 
 

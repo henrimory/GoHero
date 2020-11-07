@@ -1,0 +1,27 @@
+{% extends "BaseInicial.html" %}
+{% block title %}  {% endblock title%}
+
+ {% block content %}
+<div class="container-lg">
+    <div class="p-5 mt-5 container-lg rounded forms">
+    {% load crispy_forms_tags %}
+    <div class="text-center">
+        <h2>Você é:</h2>
+        <a href="/cadastroEndeOng/"><button type="button" class="btn" style="background-color:#57b5ac;width:8em;height:3em;" > Ong </button></a>
+        <a href="/cadastroEnde/"><button type="button" class="btn" style="background-color:#57b5ac;width:8em;height:3em; border: solid; border-weight:5px;"> Doador </button></a>
+    </div>
+        <br>
+        <div class="rounded">
+            {% if formEnd %}
+            <h1 class="text-center">Endereço</h1>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{formEnd|crispy}}
+                {{formCont | crispy}}
+                 <button type="submit" class="btn my-3" style="background-color:#57b5ac;">Próximo</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+ {% endblock content %}
