@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from doacoes.models import Numero_Contato, Endereco, Ong, Doador
+from doacoes.models import Numero_Contato, Endereco, Ong, Doador, Publicacao_Doador, Publicacao_Ong
 
 
 class contato(ModelForm):
@@ -23,4 +23,14 @@ class formOng(ModelForm):
 class formUser(ModelForm):
     class Meta:
         model = Doador
-        fields = ['nome','email_doador','senha','imagem','id_endereco','id_endereco']
+        fields = ['nome','email_doador','senha','imagem','id_endereco', 'Numero_Contato']
+
+class formPubliDoador(ModelForm):
+    class Meta:
+        model = Publicacao_Doador
+        fields = ['titulo', 'descricao', 'imagem','id_doador']
+
+class formPubliOng(ModelForm):
+    class Meta:
+        model = Publicacao_Ong
+        fields = ['titulo', 'descricao', 'imagem','id_ong']
