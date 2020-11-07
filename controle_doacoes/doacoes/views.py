@@ -7,16 +7,46 @@ from .models import Doador, Ong, Publicacao_Ong, Publicacao_Doador, Endereco, Nu
 data = {}
 
 def home(request):
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'home.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     return render(request, 'home.html', data)
 
 def homePostOng(request):
-    postOngs = Publicacao_Ong.objects.all()
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'home.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
+    postOngs = Publicacao_Ong.objects.all().order_by('-data_publicacao').exclude(id_ong=data['userLog'].pk)
     data['postOngs'] = postOngs
     data['postDoadores'] = False
     return render(request, 'home.html',data)
 
 def homePostDoador(request):
-    postDoador = Publicacao_Doador.objects.all()
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'home.html',data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
+    postDoador = Publicacao_Doador.objects.all().order_by('-data_publicacao').exclude(id_doador=data['userLog'].pk)
     data['postOngs'] = False
     data['postDoadores'] = postDoador
     return render(request, 'home.html',data)
@@ -42,6 +72,10 @@ def login(request):
             if dados.email_doador == email and dados.senha == senha:
                 data['acesso'] = True
                 userLog = Doador.objects.all().get(email_doador=email,senha=senha)
+                searchOng = Ong.objects.all()
+                searchDoador = Doador.objects.all()
+                data['searchOng'] = searchOng
+                data['searchDoador'] = searchDoador
                 data['userLog'] = userLog
                 data['tipoUser'] = "doador"
                 return redirect('url_homePostOng')
@@ -50,6 +84,10 @@ def login(request):
             if dadosOng.email_ong == email and dadosOng.senha == senha:
                 data['acesso'] = True
                 userLog = Ong.objects.all().get(email_ong=email, senha=senha)
+                searchOng = Ong.objects.all()
+                searchDoador = Doador.objects.all()
+                data['searchOng'] = searchOng
+                data['searchDoador'] = searchDoador
                 data['userLog'] = userLog
                 data['tipoUser'] = "ong"
                 return redirect('url_homePostDoador')
@@ -58,14 +96,6 @@ def login(request):
         return render(request, 'login.html', data)
 
     return render(request, 'login.html')
-
-def contatos(request):
-    form = contato(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return redirect('url_cadUser')
-    data['formCont'] = form
-    return render(request, 'cadastroUser', data)
 
 
 def cadastroEndeOng(request):
@@ -107,12 +137,22 @@ def cadastroEnde(request):
     return render(request, 'cadastroEnde.html', data)
 
 def perfil(request):
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'perfil.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     if data['tipoUser'] == "doador":
-        postagens = Publicacao_Doador.objects.filter(id_doador=data['userLog'])
+        postagens = Publicacao_Doador.objects.filter(id_doador=data['userLog']).order_by('-data_publicacao')
         data['posts'] = postagens
         return render(request, 'perfil.html', data)
     elif data['tipoUser'] == "ong":
-        postagens = Publicacao_Ong.objects.filter(id_ong=data['userLog'])
+        postagens = Publicacao_Ong.objects.filter(id_ong=data['userLog']).order_by('-data_publicacao')
         data['posts'] = postagens
         return render(request, 'perfil.html', data)
 
@@ -128,7 +168,6 @@ def infos(request, pk):
         user = Doador.objects.get(nome=data['userLog'])
 
     dadosEnde = Endereco.objects.get(logradouro = user.id_endereco)
-
     formUpdateEnd = endereco(request.POST or None, request.FILES or None, instance=dadosEnde)
 
     formUpdateCont = contato(request.POST or None, request.FILES or None)
@@ -146,6 +185,16 @@ def infos(request, pk):
     if formUpdateCont.is_valid():
         formUpdateCont.save()
         return redirect('url_infos', pk)
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'infos.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     data['formUpdate'] = formUpdate
     data['formUpdateEnd'] = formUpdateEnd
     data['formCont'] = formUpdateCont
@@ -168,14 +217,21 @@ def deletePostDoador(request,pk):
 
 
 def editPostOng(request,pk):
-
     publicacao = Publicacao_Ong.objects.get(pk=pk)
     form = formPubliOng(request.POST or None, request.FILES or None,instance=publicacao)
-
     if form.is_valid():
         form.save()
         return redirect('url_perfil')
-
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'editPostOng.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     data['formEditPostOng'] = form
     return render(request, 'editPostOng.html', data)
 
@@ -185,6 +241,16 @@ def editPostDoador(request,pk):
     if form.is_valid():
         form.save()
         return redirect('url_perfil')
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'editPostDoador.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     data['formEditPostDoador'] = form
     return render(request, 'editPostDoador.html', data)
 
@@ -194,6 +260,16 @@ def newPost(request,pk):
     if form.is_valid():
         form.save()
         return redirect('url_perfil')
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'newPost.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     data['formPost'] = form
     return render(request, 'newPost.html', data)
 
@@ -203,19 +279,39 @@ def newPostOng(request,pk):
     if form.is_valid():
         form.save()
         return redirect('url_perfil')
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'newPost.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     data['formPost'] = form
     return render(request, 'newPost.html', data)
 
 
 
 def visitPerfil(request, pk):
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'visitPerfil.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
     dadosOng = Ong.objects.all()
     dadosDoa = Doador.objects.all()
     for dado in dadosOng:
         if pk == dado.nome:
             perfilVisitado = Ong.objects.all().get(nome=pk)
             endVisitado = Endereco.objects.get(logradouro = perfilVisitado.id_endereco)
-            postagensVisitado = Publicacao_Ong.objects.filter(id_ong=perfilVisitado)
+            postagensVisitado = Publicacao_Ong.objects.filter(id_ong=perfilVisitado).order_by('-data_publicacao')
             data['perfilVisitado'] = perfilVisitado
             data['tipoVisitado'] = 'ong'
             data['endVisitado'] = endVisitado
@@ -226,12 +322,27 @@ def visitPerfil(request, pk):
         if pk == dado.nome:
             perfilVisitado = Doador.objects.all().get(nome=pk)
             endVisitado = Endereco.objects.get(logradouro=perfilVisitado.id_endereco)
-            postagensVisitado = Publicacao_Doador.objects.filter(id_doador=perfilVisitado)
+            postagensVisitado = Publicacao_Doador.objects.filter(id_doador=perfilVisitado).order_by('-data_publicacao')
             data['perfilVisitado'] = perfilVisitado
             data['tipoVisitado'] = 'doador'
             data['endVisitado'] = endVisitado
             data['postagensVisitado'] = postagensVisitado
             return render(request, 'visitPerfil.html', data)
+
+
+def search(request):
+    if request.POST:
+        nomeSearch = request.POST.get('searchName')
+        if nomeSearch == "":
+            return render(request, 'searchPerfil.html', data)
+        else:
+            compatibleUserOng = Ong.objects.filter(nome__contains=nomeSearch)
+            compatibleUserDoador = Doador.objects.filter(nome__contains=nomeSearch)
+            data['compatibleUserOng'] = compatibleUserOng
+            data['compatibleUserDoador'] = compatibleUserDoador
+            return redirect('url_search')
+    return render(request, 'searchPerfil.html', data)
+
 
 
 
