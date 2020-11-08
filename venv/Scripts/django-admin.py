@@ -1,4 +1,4 @@
-#!C:\Users\henri\PycharmProjects\SistemaGoHero\venv\Scripts\python.exe
+#!C:\Users\henri\PycharmProjects\GoHero-ver-5\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
