@@ -11,7 +11,18 @@
              <form enctype="multipart/form-data" method="POST">
                 {% csrf_token %}
                 {{formEditPostDoador|crispy}}
-                <button type="submit" class="btn btn-primary my-3">Salvar</button>
+                <img src="{{ publicacao.imagem.url }}" class="img-posts">
+                <br><br>
+                  <!-- Selecionando Imagem de Perfil -->
+                  <div class="form-group">  
+                    <input class="file-button" id="imgPerfil" required name="imgPerfil" type="button" value="Escolha a Imagem da Postagem">
+                </div>
+                <div class="form-group">
+                    <!-- invisível -->
+                    <input class="file-chooser" id="imgPost" name="imgPost" type="file" accept="image/*" hidden>
+                    <img class="preview-img img-posts" style="border-radius:10px;">
+                </div>
+                <button type="submit" class="btn btn-cad my-3">Salvar</button>
             </form>
         <br>
         <br>
@@ -25,5 +36,22 @@
         <a href="{% url 'url_login' %}"><button class="btn-deslogado">Clique aqui para Logar!</button></a>
     </div>
 {% endif %}
+
+<script> 
+    const $ = document.querySelector.bind(document);
+
+    const previewImg = $('.preview-img');
+    const fileChooser = $('.file-chooser');
+    const fileButton = $('.file-button');
+
+    fileButton.onclick = () => fileChooser.click();
+
+    fileChooser.onchange = e => {
+        const fileToUpload = e.target.files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => previewImg.src = e.target.result;
+        reader.readAsDataURL(fileToUpload);
+    };
+    </script>
 
  {% endblock content %}
