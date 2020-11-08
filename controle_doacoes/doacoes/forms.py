@@ -17,20 +17,32 @@ class endereco(ModelForm):
 class formOng(ModelForm):
     class Meta:
         model = Ong
-        fields = ['nome','email_ong','senha','imagem','id_endereco','Numero_Contato']
+        fields = ['nome','cnpj','email_ong','senha','imagem','id_endereco','id_numero']
 
 
 class formUser(ModelForm):
     class Meta:
         model = Doador
-        fields = ['nome','email_doador','senha','imagem','id_endereco', 'Numero_Contato']
+        fields = ['nome','cpf','email_doador','senha','imagem','id_endereco','id_numero']
+
+
+class formOngUp(ModelForm):
+    class Meta:
+        model = Ong
+        fields = ['nome','cnpj','email_ong','senha']
+
+
+class formUserUp(ModelForm):
+    class Meta:
+        model = Doador
+        fields = ['nome','cpf','email_doador','senha']
 
 class formPubliDoador(ModelForm):
     class Meta:
         model = Publicacao_Doador
-        fields = ['titulo', 'descricao', 'imagem','id_doador']
+        fields = ['titulo', 'descricao','categoria']
 
 class formPubliOng(ModelForm):
     class Meta:
         model = Publicacao_Ong
-        fields = ['titulo', 'descricao', 'imagem','id_ong']
+        fields = ['titulo', 'descricao','categoria']
