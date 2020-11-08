@@ -1,2 +1,3 @@
 # Django-GoHero
- Construção do Banco de Dados
+ Projeto de TCC
+
