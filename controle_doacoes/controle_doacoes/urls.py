@@ -33,7 +33,6 @@ urlpatterns = [
     path('cadastroEndeOng/', views.cadastroEndeOng, name="url_cadEndOng"),
     path('perfil/', views.perfil, name="url_perfil"),
     path('infos/<int:pk>', views.infos,name="url_infos" ),
-    path('favoritos/', views.favoritos, name="url_favoritos"),
     path('deletePostOng/<int:pk>',views.deletePostOng,name="url_deletePostOng"),
     path('deletePostDoador/<int:pk>',views.deletePostDoador,name="url_deletePostDoador"),
     path('editPostDoador/<int:pk>', views.editPostDoador, name="url_editPostDoador"),
@@ -43,6 +42,17 @@ urlpatterns = [
     path('home/postOng/', views.homePostOng, name='url_homePostOng'),
     path('home/postDoador/', views.homePostDoador, name='url_homePostDoador'),
     path('perfil/<str:pk>', views.visitPerfil, name='url_visitPerfil'),
-    path('search/', views.search, name="url_search")
+    path('search/', views.search, name="url_search"),
+    path('home/postEventos/', views.homePostEventos, name='url_homePostEventos'),
+    path('home/postCalcados/', views.homePostCalcados, name='url_homePostCalcados'),
+    path('home/postRoupas/', views.homePostRoupas, name='url_homePostRoupas'),
+    path('home/postAlimentos/', views.homePostAlimentos, name='url_homePostAlimentos'),
+    path('home/postMoveis/', views.homePostMoveis, name='url_homePostMoveis'),
+    path('home/postEletrodomesticos/', views.homePostEletrodomesticos, name='url_homePostEletrodomesticos'),
+    path('home/postDoacao/', views.homePostDoacao, name='url_homePostDoacao'),
+    path('eventosOngs', views.anuncioOngs, name='url_anuncioOngs'),
+    path('recuperarSenha/', views.recoverPass, name="url_recoverPass"),
+    path('perfilNot/<str:pk>', views.visitPerfilNotLog, name='url_visitPerfilNotLog'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

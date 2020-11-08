@@ -8,3 +8,4 @@ admin.site.register(Doador)
 admin.site.register(Numero_Contato)
 admin.site.register(Publicacao_Doador)
 admin.site.register(Publicacao_Ong)
+
