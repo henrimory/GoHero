@@ -27,7 +27,7 @@ SECRET_KEY = '(f8yh)pmff5*qt3r-q6i^nc(zs=2*rc$&*_y@*!slu$^r(c-&u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'controle_doacoes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/São_Paulo'
 
 USE_I18N = True
 
@@ -145,5 +145,9 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+YELP_API_KEY = 'A_Nr3x4ifBjeW242lQ7X6jfODc7eAxiFHYDrbl9gKljxecyP7QfqeMepIjM9T4RPVpLCEHtNugIcVDc7Q00-d3QQf-vI4t7_edusjmgoL3UQfNoYCs3UQfNoSS6JTPJCs3zjmgoL3UQfNoSS6'
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+LOGOUT_REDIRECT_URL = 'index'
 

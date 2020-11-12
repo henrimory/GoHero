@@ -20,6 +20,8 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
+from .views import IndexView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -53,6 +55,8 @@ urlpatterns = [
     path('eventosOngs', views.anuncioOngs, name='url_anuncioOngs'),
     path('recuperarSenha/', views.recoverPass, name="url_recoverPass"),
     path('perfilNot/<str:pk>', views.visitPerfilNotLog, name='url_visitPerfilNotLog'),
+
+    path('', IndexView.as_view(), name='index'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
