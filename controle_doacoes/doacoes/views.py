@@ -35,7 +35,7 @@ class IndexView(View):
                     'city' : location,
                     'busca' : True
                 }
-            return render(request, 'index.html', context)
+            return render(request, 'geo.html', context)
 
 data = {}
 

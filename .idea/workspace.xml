@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a2d3414-552e-4490-a222-9e98ae093eef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controle_doacoes/doacoes/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geoip/GeoLite2-City.mmdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geoip/GeoLite2-Country.mmdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controle_doacoes/doacoes/Templates/geo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controle_doacoes/doacoes/Templates/localiza.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controle_doacoes/controle_doacoes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle_doacoes/controle_doacoes/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle_doacoes/controle_doacoes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle_doacoes/controle_doacoes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle_doacoes/doacoes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle_doacoes/doacoes/views.py" afterDir="false" />
     </list>
@@ -20,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -32,9 +30,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Geolocaliza" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -59,13 +58,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="154" key="FileChooserDialogImpl" timestamp="1604208545149">
-      <screen x="0" y="30" width="1366" height="738" />
-    </state>
-    <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604208545149" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1605147926204">
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1605237282825">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@0.0.1366.738" timestamp="1605147926204" />
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738/-1280.-388.1280.994@0.0.1366.738" timestamp="1605237282825" />
+    <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604208545149" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1605219608287">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@0.0.1366.738" timestamp="1605219608287" />
   </component>
 </project>
