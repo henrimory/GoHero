@@ -76,25 +76,25 @@
 </head>
 <body>
 <!-- NAVBAR -->
-    <div style="position:relative;background-color: #a6f7f3; height: 80px;opacity:0.8;"></div>
+    <div style="position:relative;background-color:  #fffefd; height: 80px;opacity:0.8;"></div>
     <div class="container">
 
-        <nav class="navbar navbar-expand-lg" style="margin-top:-30px;background-color:#1b8f89;display:flex;">
+        <nav class="navbar navbar-expand-lg" style="margin-top:-30px;background-color:#3bb4f9;display:flex;">
             <!-- LOGO -->
-            <a href="/" class="col col-md-5" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;">GO HERO</a>
+            <a href="/" class="col col-md-5" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;"><img src="{% static 'logo.png' %}" width="25%" class="ml-5"></a>
 
             <button class="navbar-toggler mr-1 text-dark" type="button" data-toggle="collapse" data-target="#conteudoNavbar" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
 <!-- BOTÕES DE CADASTRAR E LOGAR -->
-            <div class="collapse navbar-collapse" id="conteudoNavbar">
+            <div class="collapse navbar-collapse mr-5" id="conteudoNavbar">
                 <div class="col" style="display:flex;justify-content: flex-end; flex-wrap:wrap;">
-                    <a href="{% url 'url_anuncioOngs' %}"><button type="button" class="btn btn-inicial border " style="font-family:Times, serif;font-size:20px;">Campanhas Recentes</button></a>
+                    <a href="{% url 'url_anuncioOngs' %}"><button type="button" class="btn btn-inicial border mr-3" style="font-family:Times, serif;font-size:20px;">Campanhas Recentes</button></a>
 
-                    <button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mr-2 ml-2 mt-2 mt-lg-0" data-toggle="modal" data-target="#modalCad">
+                    <button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mr-3 ml-2 mt-2 mt-lg-0" data-toggle="modal" data-target="#modalCad">
                         Cadastre-se
                     </button>
-                    <a href="/login/" id="login"><button type="button" class="btn btn-inicial border mt-2 mt-lg-0" style="font-family:Times, serif;font-size:20px;">Login</button></a>
+                    <a href="/login/" id="login"><button type="button" class="btn btn-inicial border mt-2 mt-lg-0 mr-3" style="font-family:Times, serif;font-size:20px;">Login</button></a>
                 </div>
 
                     <!-- Modal DO BOTÃO CADASTRAR-->
@@ -121,7 +121,7 @@
 
 {% endblock content %}
 
-<footer style="background-color: #a6f7f3; height: 80px;opacity:0.8;">
+<footer style="background-color:  #298fcb; height: 80px;opacity:0.8;">
 
 </footer>
 

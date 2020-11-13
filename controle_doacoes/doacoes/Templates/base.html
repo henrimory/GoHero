@@ -41,15 +41,13 @@
         }
         .userSearch{
         display: flex;
+        flex-wrap: wrap;
         background-color: #d9d9d9;
         padding: 20px;
         border-radius: 20px;
         box-shadow: 1px 1px 5px;
         align-items:center;
         text-decoration: none;
-        }
-        .userSearch img{
-        width:200px;
         }
         .scroll-x{
             display:flex;
@@ -165,13 +163,13 @@
 
 </head>
 <body>
-<div style="position:relative;background-color: #a6f7f3; height: 80px;opacity:0.8;"></div>
+<div style="position:relative;background-color: #fffefd; height: 80px;opacity:0.8;"></div>
 
 
 <!--elementos da navbar -->
-<nav class="navbar navbar-expand-lg navbar-light mb-5" style="margin:-30px auto; width:90%;background-color:#1b8f89;">
+<nav class="navbar navbar-expand-lg navbar-light mb-5" style="margin:-30px auto; width:90%;background-color:#3bb4f9;">
     <div class="logo col col-md-5">
-     <a href="{% url 'url_home' %}" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;"d>GO HERO</a>
+     <a href="{% url 'url_home' %}" style="font-family:Times, serif;text-decoration: none;"><img src="{% static 'logo.png' %}" width="25%" class="ml-3"></a>
     </div>
 <!-- Botão drop-down Menu -->
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -225,7 +223,7 @@
 {% endblock content %}
 <br>
 
-<footer style="background-color: #a6f7f3; height: 80px;opacity:0.8;">
+<footer style="background-color: #298fcb; height: 80px;opacity:0.8;">
 
 </footer>
 
