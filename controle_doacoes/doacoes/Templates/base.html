@@ -127,37 +127,37 @@
             }
         }
         .tw-heart-box {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-}
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
 
-.tw-heart {
-  background: url("/static/like.png") no-repeat 0 0;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: -20px;
-  top: -30px;
-}
+        .tw-heart {
+            background: url("/static/like.png") no-repeat 0 0;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: -20px;
+            top: -30px;
+        }
 
-[type="checkbox"]:checked + .tw-heart {
-  transition: background .8s steps(28);
-  background-position: -2800px 0;
-}
+        [type="checkbox"]:checked + .tw-heart {
+        transition: background .8s steps(28);
+        background-position: -2800px 0;
+        }
 
-[type="checkbox"] {
-  opacity: 0;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
+        [type="checkbox"] {
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        }
     </style>
     {% load static %}
 
@@ -169,7 +169,7 @@
 <!--elementos da navbar -->
 <nav class="navbar navbar-expand-lg navbar-light mb-5" style="margin:-30px auto; width:90%;background-color:#3bb4f9;">
     <div class="logo col col-md-5">
-     <a href="{% url 'url_home' %}" style="font-family:Times, serif;text-decoration: none;"><img src="{% static 'logo.png' %}" width="25%" class="ml-3"></a>
+     <a href="{% url 'url_home' %}" style="font-family:Times, serif;text-decoration: none;"><img src="{% static 'logo.png' %}" width="20%" class="ml-3"></a>
     </div>
 <!-- Botão drop-down Menu -->
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -200,7 +200,7 @@
         <ul class="navbar-nav">
           <li class="nav-item dropleft p-2">
               <a href="" class="text-dark dropdown" data-toggle="dropdown">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
               </a>
 
 

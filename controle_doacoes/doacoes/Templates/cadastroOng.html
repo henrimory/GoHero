@@ -17,7 +17,7 @@
                     <!-- CNPJ -->
                       <div class="form-group">
                         <label for="exampleInputEmail1">CNPJ</label>
-                        <input type="text" class="form-control" required minlength="14" maxlength="14" id="cnpj" name="cnpj" aria-describedby="cnpjHelp" placeholder="Qual o CNPJ da Ong?">
+                        <input type="text" class="form-control" required minlength="14" maxlength="14" id="cnpj" name="cnpj" aria-describedby="cnpjHelp" data-mask="00.000.000/0000-00" placeholder="Qual o CNPJ da Ong?">
                       </div>
                       <!-- Email -->
                       <div class="form-group">
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <!-- invisível -->
                         <input class="file-chooser" required oninvalid="alert('Selecione uma imagem')" id="imgPerfil1" name="imgPerfil1" type="file" accept="image/*" hidden>
-                        <img class="preview-img" style="border-radius:10px;">
+                        <img class="preview-img" style="border-radius:10px;" width="200px" height="auto">
                     </div>
                     <!-- Botão de Salvar -->
                     <button type="submit" class="btn my-3 btn-cad" style="background-color:#57b5ac;color:white;">Salvar</button>

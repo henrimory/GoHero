@@ -6,7 +6,7 @@
     <div class="container-lg">
         <div class="p-5 mt-5 container-lg rounded forms">
                 <h1 class="text-center">Dados do Doador</h1>
-                <form enctype="multipart/form-data" method="POST">
+                <form enctype="multipart/form-data" method="POST" name="formUser">
                     {% csrf_token %}
                    <!-- Nome da Doador -->
                     <div class="form-group">
@@ -16,8 +16,8 @@
                     <!-- CPF -->
                       <div class="form-group">
                         <label for="exampleInputEmail1">CPF</label>
-                        <input type="text" class="form-control" required minlength="14" maxlength="14" id="cpf" name="cpf" aria-describedby="cnpjHelp" placeholder="Qual o seu CPF?">
-                      </div>
+                      <input type="text" class="form-control" required minlength="14" maxlength="14" id="cpf" name="cpf" aria-describedby="cpfHelp" data-mask="000.000.000-00" placeholder="Qual o seu CPF?">
+                      </div>                
                       <!-- Email -->
                       <div class="form-group">
                         <label for="exampleInputEmail1">Endereço de Email</label>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <!-- invisível -->
                         <input class="file-chooser" required oninvalid="alert('Selecione uma imagem')" id="imgPerfil1" name="imgPerfil1" type="file" accept="image/*" hidden>
-                        <img class="preview-img" style="border-radius:10px;">
+                        <img class="preview-img" style="border-radius:10px;" width="200px" height="auto">
                     </div>
                     <!-- Botão de Salvar -->
                     <button type="submit" class="btn my-3 btn-cad" style="background-color:#57b5ac;color:white;">Salvar</button>
@@ -62,5 +62,13 @@
         reader.onload = e => previewImg.src = e.target.result;
         reader.readAsDataURL(fileToUpload);
     };
+
+//adiciona mascara ao CPF
+function MascaraCPF(cpf){
+        if(mascaraInteiro(cpf)==false){
+                event.returnValue = false;
+        }       
+        return formataCampo(cpf, '000.000.000-00', event);
+}
     </script>
  {% endblock content %}

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <title>{% block title %} Inicial {% endblock title %}</title>
      <style>
         body{
@@ -67,7 +70,40 @@
         }
         .forms{
         background-color: white;
+        box-shadow: 1px 1px 5px;
+        }
 
+        .tw-heart-box {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+        }
+
+        .tw-heart {
+            background: url("/static/like.png") no-repeat 0 0;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: -20px;
+            top: -30px;
+        }
+
+        [type="checkbox"]:checked + .tw-heart {
+        transition: background .8s steps(28);
+        background-position: -2800px 0;
+        }
+
+        [type="checkbox"] {
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
         }
        
     </style>
@@ -81,20 +117,20 @@
 
         <nav class="navbar navbar-expand-lg" style="margin-top:-30px;background-color:#3bb4f9;display:flex;">
             <!-- LOGO -->
-            <a href="/" class="col col-md-5" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;"><img src="{% static 'logo.png' %}" width="25%" class="ml-5"></a>
+            <a href="/" class="col col-md-5" style="font-family:Times, serif;text-decoration: none;color:white; font-size:40px; font-weight: bold;"><img src="{% static 'logo.png' %}" width="20%" class="ml-5"></a>
 
-            <button class="navbar-toggler mr-1 text-dark" type="button" data-toggle="collapse" data-target="#conteudoNavbar" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#conteudoNavbar" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
 <!-- BOTÕES DE CADASTRAR E LOGAR -->
-            <div class="collapse navbar-collapse mr-5" id="conteudoNavbar">
+            <div class="collapse navbar-collapse" id="conteudoNavbar">
                 <div class="col" style="display:flex;justify-content: flex-end; flex-wrap:wrap;">
-                    <a href="{% url 'url_anuncioOngs' %}"><button type="button" class="btn btn-inicial border mr-3" style="font-family:Times, serif;font-size:20px;">Campanhas Recentes</button></a>
+                    <a href="{% url 'url_anuncioOngs' %}" class="p-2"><button type="button" class="btn btn-inicial border" style="font-family:Times, serif;font-size:20px;">Campanhas Recentes</button></a>
 
-                    <button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mr-3 ml-2 mt-2 mt-lg-0" data-toggle="modal" data-target="#modalCad">
+                    <a class="p-2"><button type="button" style="font-family:Times, serif;font-size:20px;" class="btn btn-inicial border mt-2 mt-lg-0" data-toggle="modal" data-target="#modalCad">
                         Cadastre-se
-                    </button>
-                    <a href="/login/" id="login"><button type="button" class="btn btn-inicial border mt-2 mt-lg-0 mr-3" style="font-family:Times, serif;font-size:20px;">Login</button></a>
+                    </button></a>
+                    <a href="/login/" id="login" class="p-2"><button type="button" class="btn btn-inicial border mt-2 mt-lg-0" style="font-family:Times, serif;font-size:20px;">Login</button></a>
                 </div>
 
                     <!-- Modal DO BOTÃO CADASTRAR-->
@@ -121,10 +157,22 @@
 
 {% endblock content %}
 
-<footer style="background-color:  #298fcb; height: 80px;opacity:0.8;">
-
+<footer style="background-color:  #298fcb;padding: 10px;opacity:0.8;">
+  <div style="display: flex;justify-content: center;">
+    <img src="{% static 'facebook.png' %}" style="width: 45px; height:45px;">
+    <img src="{% static 'insta.png' %}" style="width: 50px; height:50px;">
+    <img src="{% static 'Twitter.png' %}" style="width: 50px; height:50px;">
+    <img src="{% static 'w-logo.png' %}" style="width: 50px; height:50px;">
+  </div>
+<br>
+  <div style="text-align: center;">
+    CopyRight &copy2020 - by Go Hero - Todos os direitos reservados
+  </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
