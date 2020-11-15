@@ -2,6 +2,7 @@
 {% block title %}  {% endblock title%}
 
 {% block content %}
+
 <!-- LOGIN -->
     <div class="container">
         <div class="container">
@@ -29,8 +30,18 @@
                     <a href="/cadastroEnde/" class="float-right">Criar uma conta como Doador?</a><br>
                 </div>
             </form>
+
+            {% if recSuces %}
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Senha Alterada',
+                        text: 'Senha Atualizada com sucesso',
+                    })
+                </script>
+            {% endif %}
+
         </div>
     </div>
     <br>
-
  {% endblock content %}

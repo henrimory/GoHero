@@ -13,13 +13,24 @@
                     <h4 class="p-2">Informe o E-mail: </h4>
                     <input type="email" id="emailRec" name="emailRec" required class="form-control d-inline" >
                     <br><br>
-                    <h4 class="p-2">Informe o CPF/CNPJ: </h4>
-                    <input type="text" id="cpfRec" name="cpfRec" required oninvalid="O campo deve receber ao menos 11 caracteres" class="form-control" minlength="11" maxlength="14">
+                    <div>
+                        <h4 class="p-2">Informe o CNPJ: </h4>
+                        <input type="text" id="cnpjRec" name="cnpjRec" oninvalid="O campo deve receber ao menos 11 caracteres" class="form-control"  data-mask="00.000.000/0000-00"  minlength="11" maxlength="18"><br>
+                            <h4>Ou</h4>
+                        <h4 class="p-2">Informe o CPF: </h4>
+                        <input type="text" id="cpfRec" name="cpfRec" oninvalid="O campo deve receber ao menos 11 caracteres" class="form-control"  data-mask="000.000.000-00"  minlength="11" maxlength="18">
+                    </div>
                     <h4 class="p-2">Nova Senha: </h4>
                     <input type="password" id="senhaRec" name="senhaRec" class="form-control" required oninvalid="Digite ao menos 8 caracteres" minlength="8">
                     <!-- MENSSAGEM DE ERRO AO LOGAR -->
                     {% if erroRec %}
-                        <p class="login-error">CPF/CNPJ e Email Não são compatíveis. Por favor verifique os dados</p>
+                         <script>  
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Dados Incorretos',
+                                text: 'Email e CPF/CNPJ não são compatíveis',
+                            })
+                        </script> 
                     {% endif %}
                     <br>
 

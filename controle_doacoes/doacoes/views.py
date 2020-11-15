@@ -39,21 +39,27 @@ def recoverPass(request):
     if request.POST:
         email = request.POST['emailRec']
         cpf = request.POST['cpfRec']
+        cnpj = request.POST['cnpjRec']
         senha = request.POST['senhaRec']
         dadoUser = Doador.objects.all()
         dadoOng = Ong.objects.all()
 
-        for dados in dadoUser:
-            if dados.email_doador == email and dados.cpf == cpf:
-                dados.senha = senha
-                dados.save()
-                return redirect('url_login')
-
-        for dadosOng in dadoOng:
-            if dadosOng.email_ong == email and dadosOng.cnpj == cpf:
-                dadosOng.senha = senha
-                dadosOng.save()
-                return redirect('url_login')
+        if cpf:
+            for dados in dadoUser:
+                if dados.email_doador == email and dados.cpf == cpf:
+                    dados.senha = senha
+                    dados.save()
+                    data['recSuces'] = True
+                    data['erroRec'] = False
+                    return redirect('url_login')
+        else:
+            for dadosOng in dadoOng:
+                if dadosOng.email_ong == email and dadosOng.cnpj == cnpj:
+                    dadosOng.senha = senha
+                    dadosOng.save()
+                    data['recSuces'] = True
+                    data['erroRec'] = False
+                    return redirect('url_login')
 
         data['erroRec'] = True
     return render(request, 'RecuperarSenha.html', data)
@@ -74,6 +80,7 @@ def home(request):
             data['compatibleUserOng'] = compatibleUserOng
             data['compatibleUserDoador'] = compatibleUserDoador
             return redirect('url_search')
+    data['recSuces'] = False
     return render(request, 'home.html', data)
 
 def homePostOng(request):
@@ -229,12 +236,14 @@ def homePostDoacao(request):
     return render(request, 'homeDoacao.html',data)
 
 def inicio(request):
-    return render(request, 'inicial.html')
+    data['recSuces'] = False
+    return render(request, 'inicial.html',data)
 
 def logout(request):
     data['acesso'] = False
     data['erroLogin'] = False
-    return  render(request, 'login/html', data)
+    data['recSuces'] = False
+    return  render(request, 'inicial.html', data)
 
 def login(request):
     data['acesso'] = False
@@ -268,11 +277,10 @@ def login(request):
                 data['userLog'] = userLog
                 data['tipoUser'] = "ong"
                 return redirect('url_homePostDoador')
-
         data['erroLogin'] = True
+        data['recSuces'] = False 
         return render(request, 'login.html', data)
-
-    return render(request, 'login.html')
+    return render(request, 'login.html', data)
 
 
 def cadastroEndeOng(request):
