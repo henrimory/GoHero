@@ -29,13 +29,13 @@ class formUser(ModelForm):
 class formOngUp(ModelForm):
     class Meta:
         model = Ong
-        fields = ['nome','cnpj','email_ong','senha']
+        fields = ['nome','cnpj','email_ong']
 
 
 class formUserUp(ModelForm):
     class Meta:
         model = Doador
-        fields = ['nome','cpf','email_doador','senha']
+        fields = ['nome','cpf','email_doador']
 
 class formPubliDoador(ModelForm):
     class Meta:

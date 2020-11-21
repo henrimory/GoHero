@@ -372,11 +372,9 @@ def infos(request, pk):
                 nome = formUpdate.cleaned_data['nome']
                 email = formUpdate.cleaned_data['email_doador']
                 cpf = formUpdate.cleaned_data['cpf']
-                senha = formUpdate.cleaned_data['senha']
                 img = request.FILES['imgPerfil1']
                 doador = Doador.objects.get(nome=data['userLog'])
                 doador.nome = nome
-                doador.senha = senha
                 doador.cpf = cpf
                 doador.email_doador = email
                 doador.imagem = img
@@ -386,10 +384,8 @@ def infos(request, pk):
                 nome = formUpdate.cleaned_data['nome']
                 email = formUpdate.cleaned_data['email_doador']
                 cpf = formUpdate.cleaned_data['cpf']
-                senha = formUpdate.cleaned_data['senha']
                 doador = Doador.objects.get(nome=data['userLog'])
                 doador.nome = nome
-                doador.senha = senha
                 doador.cpf = cpf
                 doador.email_doador = email
                 doador.save()
@@ -400,11 +396,9 @@ def infos(request, pk):
                 nome = formUpdate.cleaned_data['nome']
                 email = formUpdate.cleaned_data['email_ong']
                 cnpj = formUpdate.cleaned_data['cnpj']
-                senha = formUpdate.cleaned_data['senha']
                 img = request.FILES['imgPerfil1']
                 ong = Ong.objects.get(nome=data['userLog'])
                 ong.nome = nome
-                ong.senha = senha
                 ong.cnpj = cnpj
                 ong.email_ong = email
                 ong.imagem = img
@@ -414,10 +408,8 @@ def infos(request, pk):
                 nome = formUpdate.cleaned_data['nome']
                 email = formUpdate.cleaned_data['email_ong']
                 cnpj = formUpdate.cleaned_data['cnpj']
-                senha = formUpdate.cleaned_data['senha']
                 ong = Ong.objects.get(nome=data['userLog'])
                 ong.nome = nome
-                ong.senha = senha
                 ong.cnpj = cnpj
                 ong.email_ong = email
                 ong.save()
