@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a2d3414-552e-4490-a222-9e98ae093eef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle_doacoes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/controle_doacoes/db.sqlite3" afterDir="false" />
     </list>
@@ -10,6 +9,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jftIkAsvL3a53FGNI13KHNlVcL" />
   <component name="ProjectViewState">
@@ -19,7 +21,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/controle_doacoes/doacoes/Templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LanchoneteDjango" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -44,9 +46,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="154" key="FileChooserDialogImpl" timestamp="1604208545149">
-      <screen x="0" y="30" width="1366" height="738" />
+    <state x="-846" y="-221" key="FileChooserDialogImpl" timestamp="1605846569395">
+      <screen x="-1280" y="-388" width="1280" height="994" />
     </state>
+    <state x="-846" y="-221" key="FileChooserDialogImpl/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1605846569395" />
     <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604208545149" />
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog" timestamp="1606055278932">
+      <screen x="-1280" y="-388" width="1280" height="994" />
+    </state>
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1606055278932" />
   </component>
 </project>
