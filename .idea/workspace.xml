@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a2d3414-552e-4490-a222-9e98ae093eef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/GoHero-ver-5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GoHero-ver-5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controle_doacoes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/controle_doacoes/db.sqlite3" afterDir="false" />
     </list>
@@ -22,6 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../LanchoneteDjango" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -51,9 +54,13 @@
     </state>
     <state x="-846" y="-221" key="FileChooserDialogImpl/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1605846569395" />
     <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604208545149" />
-    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog" timestamp="1606055278932">
+    <state x="-1139" y="-249" key="SettingsEditor" timestamp="1607203868156">
       <screen x="-1280" y="-388" width="1280" height="994" />
     </state>
-    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1606055278932" />
+    <state x="-1139" y="-249" key="SettingsEditor/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607203868156" />
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog" timestamp="1607196988565">
+      <screen x="-1280" y="-388" width="1280" height="994" />
+    </state>
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607196988565" />
   </component>
 </project>
