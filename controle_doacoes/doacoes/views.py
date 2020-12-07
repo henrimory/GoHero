@@ -285,13 +285,12 @@ def login(request):
 
 def cadastroEndeOng(request):
     form = endereco(request.POST or None, request.FILES or None) #formulario de Endereço
-    formCont = contato(request.POST or None, request.FILES or None) # formulário de contato
-    if form.is_valid() and formCont.is_valid():
+    if form.is_valid():
+        tel = request.POST['tel']
+        Numero_Contato.objects.create(telefone=tel)
         form.save()
-        formCont.save()
         return redirect('url_cadOng')
     data['formEndOng'] = form
-    data['formCont'] = formCont
     return render(request, 'cadastroEndeOng.html', data)
 
 def cadastroOng(request):
@@ -322,13 +321,12 @@ def cadastroUser(request):
 
 def cadastroEnde(request):
     form = endereco(request.POST or None, request.FILES or None)
-    formCont = contato(request.POST or None, request.FILES or None)
-    if form.is_valid() and formCont.is_valid():
+    if form.is_valid():
+        tel = request.POST['tel']
+        Numero_Contato.objects.create(telefone=tel)
         form.save()
-        formCont.save()
         return redirect('url_cadUser')
     data['formEnd'] = form
-    data['formCont'] = formCont
     return render(request, 'cadastroEnde.html', data)
 
 def perfil(request):

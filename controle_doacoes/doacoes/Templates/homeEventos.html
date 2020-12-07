@@ -44,7 +44,7 @@
       <div class="col-lg-9 posts">
 
         {% for post in postEventos %}
-                         <div class=" bg-light text-dark rounded m-auto container border border-dark">
+                         <div class=" bg-light text-dark m-auto container i_post">
 
                         <br>
                          <a href="{% url 'url_visitPerfil' post.id_doador%}">
@@ -84,7 +84,7 @@
 
 
         {% for post in postEventosOng %}
-                         <div class=" bg-light text-dark rounded m-auto container border border-dark">
+                         <div class=" bg-light text-dark m-auto container i_post">
 
                         <br>
                          <a href="{% url 'url_visitPerfil' post.id_ong%}">
