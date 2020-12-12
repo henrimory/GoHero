@@ -52,7 +52,7 @@
       <recent name="C:\Users\guilh\Desktop\Etec\DTCC\Projeto\GoHero-ver-5\controle_doacoes" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -71,7 +71,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -83,13 +85,14 @@
     </state>
     <state x="-846" y="-221" key="FileChooserDialogImpl/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1605846569395" />
     <state x="463" y="154" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604208545149" />
-    <state x="-1139" y="-249" key="SettingsEditor" timestamp="1607203868156">
+    <state x="-1139" y="-249" key="SettingsEditor" timestamp="1607388379212">
       <screen x="-1280" y="-388" width="1280" height="994" />
     </state>
-    <state x="-1139" y="-249" key="SettingsEditor/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607203868156" />
-    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog" timestamp="1607196988565">
+    <state x="-1139" y="-249" key="SettingsEditor/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607388379212" />
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog" timestamp="1607729063278">
       <screen x="-1280" y="-388" width="1280" height="994" />
     </state>
-    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607196988565" />
+    <state x="-944" y="-67" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@-1280.-388.1280.994" timestamp="1607729063278" />
+    <state x="359" y="238" key="com.intellij.ide.util.TipDialog/0.0.1366.738/-1280.-388.1280.994@0.0.1366.738" timestamp="1607471295831" />
   </component>
 </project>
